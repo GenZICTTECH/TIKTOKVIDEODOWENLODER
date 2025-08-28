@@ -3,16 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TikTok Downloader</title>
-  <link rel="stylesheet" href="/static/css/style.css">
+  <title>TikTok Video Downloader - GenZICT</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container">
-    <h1>TikTok Downloader</h1>
-    <form action="/download" method="POST">
-      <input type="text" name="url" placeholder="Enter TikTok URL" required>
+    <h1 class="title">🎵 TikTok Video Downloader</h1>
+    <p class="subtitle">Download TikTok videos easily and fast!</p>
+
+    <form id="downloadForm">
+      <input type="text" id="urlInput" placeholder="Paste TikTok link here..." required>
       <button type="submit">Download</button>
     </form>
+
+    <p id="status"></p>
   </div>
+
+  <footer>
+    <p>📌 Join our channel: 
+      <a href="https://whatsapp.com/channel/0029Vb128zjKbYMQUk4cEM1C" target="_blank">GenZICT TECH</a>
+    </p>
+    <p>© 2025 GenZICT. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const form = document.getElementById("downloadForm");
+    const status = document.getElementById("status");
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const url = document.getElementById("urlInput").value.trim();
+      if (!url) {
+        status.textContent = "⚠️ Please paste a valid TikTok link!";
+        return;
+      }
+      status.textContent = "⏳ Processing your download...";
+      // TODO: call backend API here for actual downloading
+      setTimeout(() => {
+        status.textContent = "✅ Download complete! Check your downloads.";
+        alert("Download finished! 🚀 Don’t forget to follow GenZICT TECH!");
+      }, 3000);
+    });
+  </script>
 </body>
 </html>
